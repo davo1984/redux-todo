@@ -1,43 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>JS ToDo</title>
+    
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
 
     <script src="https://wzrd.in/standalone/expect@latest"></script>
     <script src="https://wzrd.in/standalone/deep-freeze@latest"></script>
-<script>
-    const toggleTodo = (todo) => {
-    return {
-      ...todo,
-      completed: !todo.completed
-    };
-  };
-  
-  const testToggleTodo = () => {
-    const todoBefore = {
-      id: 0,
-      text: 'Learning Redux',
-      completed: false
-    };
-    const todoAfter = {
-      id: 0,
-      text: 'Learning Redux',
-      completed: true
-    };
-    
-    deepFreeze(todoBefore);
-    
-    expect(
-      toggleTodo(todoBefore)
-    ).toEqual(todoAfter);
-  };
-  
-  testToggleTodo();
-  console.log('All tests passed.');
-</script>
-  </head>
-  <body>
-  </body>
+    <script src="./main.js"></script>
+</head>
+
+<body>
+</body>
+
 </html>
