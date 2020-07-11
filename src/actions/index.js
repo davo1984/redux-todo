@@ -5,6 +5,13 @@ export const addTodo = text => ({
   text
 })
 
+let nextListId = 0
+export const addList = text => ({
+    type: 'ADD_LIST',
+    id: nextListId++,
+    text
+})
+
 export const setVisibilityFilter = filter => ({
   type: 'SET_VISIBILITY_FILTER',
   filter

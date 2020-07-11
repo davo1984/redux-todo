@@ -13,7 +13,7 @@ const getVisibleTodos = (todos, filter) => {
       return todos.filter(t => !t.completed)
     default:
         console.log('Unknown filter:', + filter)
-    //   throw new Error('Unknown filter: ' + filter)
+      throw new Error('Unknown filter: ' + filter)
   }
 }
 
