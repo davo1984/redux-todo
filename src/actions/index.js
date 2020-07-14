@@ -1,5 +1,5 @@
-let nextTodoId = 0
-export const addTodo = text => ({
+// let nextTodoId = 0
+export const addTodo = (text, nextTodoId) => ({
   type: 'ADD_TODO',
   id: nextTodoId++,
   text
