@@ -6,14 +6,27 @@ import rootReducer from './reducers';
 import App from './components/App';
 import "bootstrap/dist/css/bootstrap.css";
 
-const todoItems = JSON.parse(localStorage.getItem("todoLists"));
-console.log('initalState', todoItems);
-const initialState = { todos: [] };
-if ( todoItems !== null ) {
-    initialState = { 
-        todos: [ ...todoItems ] 
+const todoReturned = localStorage.getItem("todoLists");
+let todoItems = JSON.parse(todoReturned);
+
+// if (todoItems === null) {
+//     todoItems = [{ 'id': 0, 'text': "Have a good day", 'completed': false }]
+// }
+
+let initialState = {
+    todos: []
+};
+
+if (todoItems !== null) {
+    initialState = {
+        todos: [...todoItems]
     };
 }
+
+// if ( todoItems !== null ) {
+//     console.log('todoItems returned, length', todoItems, todoItems.length);
+//     initialState = { todos: [] };
+// }
   
 const store = createStore(
     rootReducer, /* preloadedState, */

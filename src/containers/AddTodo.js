@@ -3,24 +3,23 @@ import { connect } from 'react-redux';
 import { addTodo } from '../actions';
 import { Button, Form, FormControl } from 'react-bootstrap';
 
-const numTodos = 1;
+let numTodos = 0;
+let todos = {};
 
 const mapCounterToProps = state => {
-    if ("state" in window) {
-        numTodos = state.todos.todos.length;
-        console.log('todos #', numTodos);
-    } else {console.log('todos, #', state, numTodos);}
-
-    
-    return numTodos - 1
-    // {
-    //     todos: getSaveTodos(state.todos, state.visibilityFilter)
-    // }
+    numTodos: getTodos(state)
 }
 
+const getTodos = (todos) => {
+    return todos.length
+}
+
+let nextTodoId = 0
 const AddTodo = ({ dispatch }) => {
-    let nextTodoId = mapCounterToProps();
-    console.log('mapCounterToProps', nextTodoId)
+    numTodos = mapCounterToProps();
+
+    // let nextTodoId = todos.length;
+    console.log('mapCounterToProps', numTodos)
     let input
 
     return (

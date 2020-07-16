@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 // import SaveItems from './SaveItems';
 // import { getVisibleTodos, mapStateToProps } from '../containers/VisibleTodoList';
 import { VisibilityFilters } from '../actions';
