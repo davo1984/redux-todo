@@ -16,13 +16,13 @@ const DisplaySaveOptions = () => (
     </div>
 )
 
-const mapStateListToProps = state => {
-    todos = state
-    console.log('todos', todos);
+export const mapStateListToProps = state => {
+    todos = state.todos
+    console.log('DisplaySaveOptions inside mapStateListToProps state', state.todos, state.todos.length);
     return
-    {
-        todos: getSaveTodos(state.todos, state.visibilityFilter)
-    }
+        {
+            todos: getSaveTodos(state.todos, state.visibilityFilter)
+        }
 }
 
 const getSaveTodos = (todos, filter) => {
@@ -32,12 +32,11 @@ const getSaveTodos = (todos, filter) => {
         case VisibilityFilters.SHOW_COMPLETED:
             return todos.todos.filter(t => t.completed)
         case VisibilityFilters.SHOW_ACTIVE:
-            console.log('in switch', todos.todos.filter(t => !t.completed) );
             return todos.todos.filter(t => !t.completed)
         default:
             console.log('Unknown filter:', + filter)
+            //   throw new Error('Unknown filter: ' + filter)
             return todos
-        //   throw new Error('Unknown filter: ' + filter)
     }
 }
 

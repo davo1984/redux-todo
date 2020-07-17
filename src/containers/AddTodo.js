@@ -1,25 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions';
+import store from '../app/store.js';
 import { Button, Form, FormControl } from 'react-bootstrap';
 
 let numTodos = 0;
 let todos = {};
+let number = 2
+// store.subscribe((state) => {
+//     // number = state.todos.todos.length
+//     console.log('INSIDE OF THE SUBSCRIBED STORE', store.getState())
+// })
+// const mapCounterToProps = (state, ownProps) => {
+//     console.log('inside mapConterToProps', number, store.getState())
+//     // const number = 2;
+//     return number
+// }
 
-const mapCounterToProps = state => {
-    numTodos: getTodos(state)
-}
+// const getTodos = (todos) => {
+//     return todos.length
+// }
 
-const getTodos = (todos) => {
-    return todos.length
-}
-
-let nextTodoId = 0
+// let nextTodoId = 0
 const AddTodo = ({ dispatch }) => {
-    numTodos = mapCounterToProps();
+    // nextTodoId = mapCounterToProps();
+    // nextTodoId = mapCounterToProps();
 
     // let nextTodoId = todos.length;
-    console.log('mapCounterToProps', numTodos)
+    // console.log('mapCounterToProps returned', nextTodoId)
     let input
 
     return (
@@ -41,4 +49,4 @@ const AddTodo = ({ dispatch }) => {
     )
 }
 
-export default connect(mapCounterToProps)(AddTodo);
+export default AddTodo;
