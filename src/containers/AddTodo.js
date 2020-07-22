@@ -6,27 +6,22 @@ import { Button, Form, FormControl } from 'react-bootstrap';
 
 let numTodos = 0;
 let todos = {};
-let number = 2
-// store.subscribe((state) => {
-//     // number = state.todos.todos.length
-//     console.log('INSIDE OF THE SUBSCRIBED STORE', store.getState())
-// })
-// const mapCounterToProps = (state, ownProps) => {
-//     console.log('inside mapConterToProps', number, store.getState())
-//     // const number = 2;
-//     return number
-// }
+let number = 2;
+let largest = 0;
+store.subscribe(() => {
+    let props = store.getState()
+    number = props.todos.todos.length
+    console.log('props', number, props)
+    console.log('props.todos', number, props.todos)
+    console.log('props.todos.todos', number, props.todos.todos)
+    var result = props.todos.todos.map(aTodo => ({ value: todos.id, text: todos.text }));
+    console.log(result)
+    largest = Math.max.apply(0, result.id);
+    console.log('INSIDE OF THE SUBSCRIBED STORE', props.todos.todos[0], largest)
+})
 
-// const getTodos = (todos) => {
-//     return todos.length
-// }
-
-// let nextTodoId = 0
 const AddTodo = ({ dispatch }) => {
-    // nextTodoId = mapCounterToProps();
-    // nextTodoId = mapCounterToProps();
-
-    // let nextTodoId = todos.length;
+    let nextTodoId = largest++;
     // console.log('mapCounterToProps returned', nextTodoId)
     let input
 
@@ -38,7 +33,7 @@ const AddTodo = ({ dispatch }) => {
                     if (!input.value.trim()) {
                         return
                     }
-                    dispatch(addTodo(input.value, nextTodoId))
+                    store.dispatch(addTodo(input.value, nextTodoId))
                     input.value = ''
                 }}
             >
