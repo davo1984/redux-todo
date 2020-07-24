@@ -8,7 +8,7 @@ const Todo = ({ onClick, completed, text }) => (
       textDecoration: completed ? 'line-through' : 'none'
     }}
   >
-    {/* put form checkbox for deletion here, maybe */}
+    {/* put form checkbox for deletion here */}
     {text}
   </li>
 )

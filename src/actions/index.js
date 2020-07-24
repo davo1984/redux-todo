@@ -1,14 +1,14 @@
-// let nextTodoId = 0
-export const addTodo = (text, nextTodoId) => ({
+let nextTodoId = 0
+export const addTodo = (text) => ({
   type: 'ADD_TODO',
-  id: nextTodoId++,
+//   id: nextTodoId++,
   text
 })
 
 let nextListId = 0
 export const addList = text => ({
     type: 'ADD_LIST',
-    id: nextListId++,
+    // id: nextListId++,
     text
 })
 

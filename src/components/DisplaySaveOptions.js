@@ -19,10 +19,7 @@ const DisplaySaveOptions = () => (
 export const mapStateListToProps = state => {
     todos = state.todos
     console.log('DisplaySaveOptions inside mapStateListToProps state', state.todos, state.todos.length);
-    return
-        {
-            todos: getSaveTodos(state.todos, state.visibilityFilter)
-        }
+    return { todos: getSaveTodos(state.todos, state.visibilityFilter) }
 }
 
 const getSaveTodos = (todos, filter) => {
