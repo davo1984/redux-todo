@@ -25,11 +25,11 @@ export const mapStateListToProps = state => {
 const getSaveTodos = (todos, filter) => {
     switch (filter) {
         case VisibilityFilters.SHOW_ALL:
-            return todos.todos
+            return todos
         case VisibilityFilters.SHOW_COMPLETED:
-            return todos.todos.filter(t => t.completed)
+            return todos.filter(t => t.completed)
         case VisibilityFilters.SHOW_ACTIVE:
-            return todos.todos.filter(t => !t.completed)
+            return todos.filter(t => !t.completed)
         default:
             console.log('Unknown filter:', + filter)
             //   throw new Error('Unknown filter: ' + filter)

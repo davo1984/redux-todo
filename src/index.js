@@ -10,7 +10,7 @@ const todoReturned = localStorage.getItem("todoLists");
 console.log('stored state', todoReturned)
 let todoItems = []
 
-if (todoItems === null) {
+if (todoReturned === null) {
     todoItems = [{ 'id': 0, 'text': "Have a good day", 'completed': false }]
 } else {
     todoItems = JSON.parse(todoReturned);
@@ -21,7 +21,7 @@ if (todoItems === null) {
 // }
 
 let initialState = {
-    todos: []
+    todos: todoItems
 };
 
 if (todoItems !== null) {
@@ -37,7 +37,7 @@ console.log('initial state loaded', initialState)
   
 const store = createStore(
     rootReducer, /* preloadedState, */
-    // initialState,
+    initialState,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     );
 
